@@ -1,1 +1,1 @@
-code .
+start "" "C:\Users\zhanxz\AppData\Local\Programs\Microsoft VS Code\Code.exe" "%~dp0"
