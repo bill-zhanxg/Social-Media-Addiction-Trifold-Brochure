@@ -20,22 +20,32 @@
         type="image/x-icon">
 </head>
 
-<body class="bg-gray-600">
-    <div class="-mt-[150px]">
+<body class="">
+    <div class="-mt-[300px] border-solid border-4 border-indigo-600 border-grey">
         <div>
             <img src="phone.jpg"
                 class="flex mx-auto mt-[20rem] justify-center items-center items-stretch py-2 drop-shadow-md">
         </div>
     </div>
 
-    <div class='py-20 lg:grid lg:grid-cols-2 lg:gap-2 border-solid border-4 border-indigo-600 border-white'>
-        <h1 class="bg-white">test2</h1>
+    <div id="mySidenav" class="sidenav border-solid border-4 border-black">
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Clients</a>
+        <a href="#">Contact</a>
     </div>
-    <div class='py-20 lg:grid lg:grid-cols-2 lg:gap-2'>
-        <h1>Hehe</h1>
-    </div>
-    <div class='py-20 lg:grid lg:grid-cols-2 lg:gap-2'>
-        <h1>Hehe</h1>
+    <a id="navBtn" href="javascript:void(0)" class="closebtn" onclick="navChanged()">☰</a>
+
+    <div id="main">
+        <div class='py-20 lg:grid lg:grid-cols-2 lg:gap-2 border-solid border-4 border-indigo-600 border-white'>
+            <h1 class="bg-white">test2</h1>
+        </div>
+        <div class='py-20 lg:grid lg:grid-cols-2 lg:gap-2'>
+            <h1>Hehe</h1>
+        </div>
+        <div class='py-20 lg:grid lg:grid-cols-2 lg:gap-2'>
+            <h1>Hehe</h1>
+        </div>
     </div>
 </body>
 
