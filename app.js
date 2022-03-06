@@ -57,6 +57,19 @@ $(window).on("load resize scroll", function () {
             .find(".bg-move-u")
             .css({ left: position / 3, bottom: position / 3 });
     });
+
+    var checkTop = $("#darkside").offset().top;
+    if ($(".body").hasClass("to-red-500")) {
+        if (windowTop < checkTop - 30) {
+    
+        }
+    }
+    else {
+        if (windowTop >= checkTop - 30) {
+            console.log("yes")
+            $(".body").addClass("to-red-500");
+        }
+    }
 });
 
 jQuery(function ($) {
@@ -76,6 +89,8 @@ jQuery(function ($) {
 });
 
 $(document).ready(function () {
+    $("#darkside").css("padding-top", $(window).height())
+
     $("#openNav").click(function () {
         $("#main").css("marginLeft", "25%");
         $("#mySidebar").css({ "width": "25%", "display": "block" });
