@@ -97,11 +97,14 @@ $(document).ready(function () {
             $(this).html("Show Picture<br>&#x2228;");
         }
     });
+    $("#top").click(function () {
+        $('body, html').animate({ scrollTop: 0 }, 800);
+    });
     $("#1").click(function () {
-        $('body, html').animate({ scrollTop: 270 }, 800);
+        $('body, html').animate({ scrollTop: $("#jump1").offset().top }, 800);
     });
     $("#2").click(function () {
-        $('body, html').animate({ scrollTop: 1100 }, 800);
+        $('body, html').animate({ scrollTop: $("#jump2").offset().top }, 800);
     });
 })
 
