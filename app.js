@@ -94,7 +94,7 @@ $(document).ready(function () {
         }
         else {
             $('.ytimg').slideUp();
-            $(this).html("Hide Picture<br>&#x2228;");
+            $(this).html("Show Picture<br>&#x2228;");
         }
     });
     $("#1").click(function () {
