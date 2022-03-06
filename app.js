@@ -104,3 +104,6 @@ $(document).ready(function () {
         $('body, html').animate({ scrollTop: 1100 }, 800);
     });
 })
+
+// Dark part using red
+// How to escape using Blue or green
