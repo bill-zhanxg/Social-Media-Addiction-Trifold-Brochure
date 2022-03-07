@@ -61,12 +61,11 @@ $(window).on("load resize scroll", function () {
     var checkTop = $("#darkside").offset().top;
     if ($(".body").hasClass("to-red-500")) {
         if (windowTop < checkTop - 30) {
-    
+            $(".body").removeClass("to-red-500");
         }
     }
     else {
         if (windowTop >= checkTop - 30) {
-            console.log("yes")
             $(".body").addClass("to-red-500");
         }
     }
