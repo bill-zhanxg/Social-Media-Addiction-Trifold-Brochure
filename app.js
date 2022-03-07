@@ -62,11 +62,28 @@ $(window).on("load resize scroll", function () {
     if ($(".body").hasClass("to-red-500")) {
         if (windowTop < checkTop - 30) {
             $(".body").removeClass("to-red-500");
+            $("#darkside").animate({ "padding-top": $(window).height() }, 500);
         }
     }
     else {
         if (windowTop >= checkTop - 30) {
             $(".body").addClass("to-red-500");
+            $("#darkside").animate({ "padding-top": 10 }, 500);
+            $(".snapchat").each(function () {
+
+            });
+            $(".instagram").each(function () {
+
+            });
+            $(".facebook").each(function () {
+
+            });
+            $(".tiktok").each(function () {
+
+            });
+            $(".youtube").each(function () {
+
+            });
         }
     }
 });
@@ -88,7 +105,7 @@ jQuery(function ($) {
 });
 
 $(document).ready(function () {
-    $("#darkside").css("padding-top", $(window).height())
+    $("#darkside").css("padding-top", $(window).height());
 
     $("#openNav").click(function () {
         $("#main").css("marginLeft", "25%");
