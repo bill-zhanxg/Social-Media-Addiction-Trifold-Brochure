@@ -21,35 +21,35 @@ $(window).on("load resize scroll", function () {
                 $(element).animate({ left: -1000 }, 500, function () {
                     changeIcon();
 
-                    $(element).animate({ left: oldLeft }, 500);
+                    $(element).animate({ left: oldLeft }, 1000);
                 });
             }
             else if ($(element).is(".bg-move-r, .bg-move2-r")) {
                 $(element).animate({ right: -1000 }, 500, function () {
                     changeIcon();
 
-                    $(element).animate({ right: oldRight }, 500);
+                    $(element).animate({ right: oldRight }, 1000);
                 });
             }
             else if ($(element).is(".bg-move-r-t, .bg-move2-r-t")) {
                 $(element).animate({ right: -1000, top: -1000 }, 500, function () {
                     changeIcon();
 
-                    $(element).animate({ right: oldRight, top: oldTop }, 500);
+                    $(element).animate({ right: oldRight, top: oldTop }, 1000);
                 });
             }
             else if ($(element).is(".bg-move-t, .bg-move2-t")) {
                 $(element).animate({ left: -1000, top: -1000 }, 500, function () {
                     changeIcon();
 
-                    $(element).animate({ left: oldLeft, top: oldTop }, 500);
+                    $(element).animate({ left: oldLeft, top: oldTop }, 1000);
                 });
             }
             else if ($(element).is(".bg-move-u")) {
                 $(element).animate({ left: -1000, bottom: -1000 }, 500, function () {
                     changeIcon();
 
-                    $(element).animate({ left: oldLeft, bottom: oldBottom }, 500);
+                    $(element).animate({ left: oldLeft, bottom: oldBottom }, 1000);
                 });
             }
 
@@ -202,17 +202,40 @@ $(document).ready(function () {
             $(this).html("Show Picture<br>&#x2228;");
         }
     });
+    $(".snapimgbtn").click(function () {
+        console.log($('.snapimg').css("display"));
+        if ($('.snapimg').css("display") == "none") {
+            $('.snapimg').slideDown();
+            $(this).html("Hide Picture<br>\u2227");
+        }
+        else {
+            $('.snapimg').slideUp();
+            $(this).html("Show Picture<br>&#x2228;");
+        }
+    });
+    $(".instaimgbtn").click(function () {
+        console.log($('.instaimg').css("display"));
+        if ($('.instaimg').css("display") == "none") {
+            $('.instaimg').slideDown();
+            $(this).html("Hide Picture<br>\u2227");
+        }
+        else {
+            $('.instaimg').slideUp();
+            $(this).html("Show Picture<br>&#x2228;");
+        }
+    });
     $("#top").click(function () {
         $('body, html').animate({ scrollTop: 0 }, 800);
     });
-    $("#1").click(function () {
-        $('body, html').animate({ scrollTop: $("#jump1").offset().top }, 800);
-    });
-    $("#2").click(function () {
-        $('body, html').animate({ scrollTop: $("#jump2").offset().top }, 800);
-    });
-    $("#3").click(function () {
-        $('body, html').animate({ scrollTop: $("#jump3").offset().top }, 800);
+    $("#1, #2, #3, #4, #5, #6, #7, #8, #9, #10").click(function () {
+        e = this;
+        $('body, html').animate({ scrollTop: $(`#jump${$(e).attr("id")}`).offset().top }, 800, function () {
+            if ($('body, html').scrollTop != $(`#jump${$(e).attr("id")}`).offset().top) {
+                setTimeout(() => {
+                    $('body, html').animate({ scrollTop: $(`#jump${$(e).attr("id")}`).offset().top }, 200);
+                }, 500);
+            }
+        });
     });
 })
 

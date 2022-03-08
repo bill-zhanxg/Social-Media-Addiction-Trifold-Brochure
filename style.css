@@ -46,6 +46,11 @@ p {
     overflow: visible
 }
 
+.cell {
+    margin: auto;
+    width: 500px;
+}
+
 .w3-sansita {
     font-family: 'Sansita Swashed';
     font-size: 7vw;
