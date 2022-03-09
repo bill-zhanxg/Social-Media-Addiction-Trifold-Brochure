@@ -1,3 +1,15 @@
+.link {
+    color: rgb(96, 96, 255) !important;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+.link:active {
+    color: rgb(147, 147, 255) !important;
+}
+
 .title {
     font-family: 'League Gothic';
     font-size: 5vw;
@@ -78,6 +90,11 @@ p {
 }
 .rotate2 {
     animation: rotation 5s infinite linear;
+}
+
+.end {
+    height: 90%;
+    overflow-y: scroll;
 }
 
 @keyframes rotation {

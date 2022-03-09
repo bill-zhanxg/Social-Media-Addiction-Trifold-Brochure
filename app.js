@@ -10,6 +10,12 @@ $(window).on("load resize scroll", function () {
     scrollPercent = (windowTop / (documentHeight - windowHeight)) * 100;
     $("#proBar").css("width", `${scrollPercent}%`)
 
+    if (Math.round($(window).scrollTop() + $(window).height()) == $(document).height()) {
+        if ($("#theend").css("display") == "none") {
+            $("#theend").css("display", "block");
+        }
+    }
+
     if (isAnimating == false) {
         function switchIcon(isGood, element) {
             let oldLeft = element.css("left");
@@ -73,7 +79,7 @@ $(window).on("load resize scroll", function () {
                             break;
                     }
                 }
-                else {
+                else if (isGood == false) {
                     switch (element.attr("alt")) {
                         case "snapchat":
                             element.attr("src", "img/reverse/snapchat.png");
@@ -89,6 +95,25 @@ $(window).on("load resize scroll", function () {
                             break;
                         case "youtube":
                             element.attr("src", "img/reverse/youtube.png");
+                            break;
+                    }
+                }
+                else {
+                    switch (element.attr("alt")) {
+                        case "snapchat":
+                            element.attr("src", "img/original/snapchat.png");
+                            break;
+                        case "instagram":
+                            element.attr("src", "img/original/instagram.png");
+                            break;
+                        case "facebook":
+                            element.attr("src", "img/original/facebook.png");
+                            break;
+                        case "tiktok":
+                            element.attr("src", "img/original/tiktok.png");
+                            break;
+                        case "youtube":
+                            element.attr("src", "img/original/youtube.png");
                             break;
                     }
                 }
@@ -116,9 +141,77 @@ $(window).on("load resize scroll", function () {
 
                 $(".body").addClass("to-red-500");
                 $("#darkside").animate({ "padding-top": 10 }, 500);
+                $("#6").text("Dark Side");
+                $("#7").text("How does companies do this");
 
                 $(".bg-static").each(function () {
                     switchIcon(false, $(this).find("*"));
+                });
+
+                isAnimating = false;
+            }
+        }
+
+        var checkTop2 = $("#middle").offset().top;
+        if ($(".body").hasClass("to-blue-700")) {
+            if (windowTop < checkTop2 - 30) {
+                isAnimating = true;
+
+                $(".body").removeClass("to-blue-700");
+                $("#middle").animate({ "padding-top": $(window).height() }, 500);
+
+                $(".bg-static").each(function () {
+                    switchIcon(false, $(this).find("*"));
+                });
+
+                isAnimating = false;
+            }
+        }
+        else {
+            if (windowTop >= checkTop2 - 30) {
+                isAnimating = true;
+
+                $(".body").addClass("to-blue-700");
+                $("#middle").animate({ "padding-top": 10 }, 500);
+                $("#8").text("What can we do");
+
+                $(".bg-static").each(function () {
+                    switchIcon(null, $(this).find("*"));
+                });
+
+                isAnimating = false;
+            }
+        }
+
+        var checkTop3 = $("#opinion").offset().top;
+        if ($(".body").hasClass("to-green-500")) {
+            if (windowTop < checkTop3 - 30) {
+                isAnimating = true;
+
+                $(".body").removeClass("to-green-500");
+                $("#opinion").animate({ "padding-top": $(window).height() }, 500);
+
+                $(".bg-static").each(function () {
+                    switchIcon(null, $(this).find("*"));
+                });
+
+                isAnimating = false;
+            }
+        }
+        else {
+            if (windowTop >= checkTop3 - 30) {
+                isAnimating = true;
+
+                $(".body").addClass("to-green-500");
+                $("#opinion").animate({ "padding-top": 10 }, 500);
+                $("#9").text("Personal Opinions");
+                $("#10").text("Discord");
+                $("#11").text("Discord Developers");
+                $("#12").text("How does discord earn money");
+                $("#13").text("Final Though");
+
+                $(".bg-static").each(function () {
+                    switchIcon(true, $(this).find("*"));
                 });
 
                 isAnimating = false;
@@ -180,6 +273,8 @@ jQuery(function ($) {
 
 $(document).ready(function () {
     $("#darkside").css("padding-top", $(window).height());
+    $("#middle").css("padding-top", $(window).height());
+    $("#opinion").css("padding-top", $(window).height());
 
     $("#openNav").click(function () {
         $("#main").css("marginLeft", "25%");
@@ -192,7 +287,6 @@ $(document).ready(function () {
         $("#openNav").css("display", "inline-block");
     });
     $(".ytimgbtn").click(function () {
-        console.log($('.ytimg').css("display"));
         if ($('.ytimg').css("display") == "none") {
             $('.ytimg').slideDown();
             $(this).html("Hide Picture<br>\u2227");
@@ -203,7 +297,6 @@ $(document).ready(function () {
         }
     });
     $(".snapimgbtn").click(function () {
-        console.log($('.snapimg').css("display"));
         if ($('.snapimg').css("display") == "none") {
             $('.snapimg').slideDown();
             $(this).html("Hide Picture<br>\u2227");
@@ -214,7 +307,6 @@ $(document).ready(function () {
         }
     });
     $(".instaimgbtn").click(function () {
-        console.log($('.instaimg').css("display"));
         if ($('.instaimg').css("display") == "none") {
             $('.instaimg').slideDown();
             $(this).html("Hide Picture<br>\u2227");
@@ -224,10 +316,34 @@ $(document).ready(function () {
             $(this).html("Show Picture<br>&#x2228;");
         }
     });
+    $(".discordimgbtn").click(function () {
+        if ($('.discordimg4').css("display") == "none") {
+            $('.discordimg').slideDown().promise().done(function () {
+                $('.discordimg2').slideDown().promise().done(function () {
+                    $('.discordimg3').slideDown().promise().done(function () {
+                        $('.discordimg4').slideDown().promise().done(function () {
+                            $(".discordimgbtn").html("Hide Pictures<br>\u2227");
+                        });
+                    });
+                });
+            });
+        }
+        else {
+            $('.discordimg4').slideUp().promise().done(function () {
+                $('.discordimg3').slideUp().promise().done(function () {
+                    $('.discordimg2').slideUp().promise().done(function () {
+                        $('.discordimg').slideUp().promise().done(function () {
+                            $(".discordimgbtn").html("Show Pictures<br>&#x2228;");
+                        });
+                    });
+                });
+            });
+        }
+    });
     $("#top").click(function () {
         $('body, html').animate({ scrollTop: 0 }, 800);
     });
-    $("#1, #2, #3, #4, #5, #6, #7, #8, #9, #10").click(function () {
+    $("#1, #2, #3, #4, #5, #6, #7, #8, #9, #10, #11, #12, #13").click(function () {
         e = this;
         $('body, html').animate({ scrollTop: $(`#jump${$(e).attr("id")}`).offset().top }, 800, function () {
             if ($('body, html').scrollTop != $(`#jump${$(e).attr("id")}`).offset().top) {
@@ -237,7 +353,7 @@ $(document).ready(function () {
             }
         });
     });
+    $("#bottom").click(function () {
+        $('body, html').animate({ scrollTop: $(document).height() }, 800);
+    });
 })
-
-// Dark part using red
-// How to escape using Blue or green
