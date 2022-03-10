@@ -97,6 +97,10 @@ p {
     overflow-y: scroll;
 }
 
+.endimg {
+    width: 100%;
+}
+
 @keyframes rotation {
     from {
       transform: rotate(0deg);

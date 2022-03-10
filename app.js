@@ -18,44 +18,67 @@ $(window).on("load resize scroll", function () {
 
     if (isAnimating == false) {
         function switchIcon(isGood, element) {
-            let oldLeft = element.css("left");
-            let oldRight = element.css("right");
-            let oldTop = element.css("top");
-            let oldBottom = element.css("bottom");
-
             if ($(element).is(".bg-move, .bg-move2, .bg-move3")) {
-                $(element).animate({ left: -1000 }, 500, function () {
+                $(element).animate({ left: -1000 }, 1000, function () {
                     changeIcon();
 
-                    $(element).animate({ left: oldLeft }, 1000);
+                    let pos = windowTop / ($(document).height() / $(document).width());
+                    if ($(element).is(".bg-move")) {
+                        $(element).animate({ left: pos }, 300);
+                    }
+                    else if ($(element).is(".bg-move2")) {
+                        $(element).animate({ left: pos / 2 }, 300);
+                    }
+                    else {
+                        $(element).animate({ left: pos / 3 }, 300);
+                    }
                 });
             }
             else if ($(element).is(".bg-move-r, .bg-move2-r")) {
-                $(element).animate({ right: -1000 }, 500, function () {
+                $(element).animate({ right: -1000 }, 1000, function () {
                     changeIcon();
 
-                    $(element).animate({ right: oldRight }, 1000);
+                    let pos = windowTop / ($(document).height() / $(document).width());
+                    if ($(element).is(".bg-move-r")) {
+                        $(element).animate({ right: pos }, 300);
+                    }
+                    else {
+                        $(element).animate({ right: pos / 2 }, 300);
+                    }
                 });
             }
             else if ($(element).is(".bg-move-r-t, .bg-move2-r-t")) {
-                $(element).animate({ right: -1000, top: -1000 }, 500, function () {
+                $(element).animate({ right: -1000, top: -1000 }, 1000, function () {
                     changeIcon();
 
-                    $(element).animate({ right: oldRight, top: oldTop }, 1000);
+                    let pos = windowTop / ($(document).height() / $(document).width());
+                    if ($(element).is(".bg-move-r-t")) {
+                        $(element).animate({ right: pos / 4, top: pos / 4 }, 300);
+                    }
+                    else {
+                        $(element).animate({ right: pos / 6, top: pos / 6 }, 300);
+                    }
                 });
             }
             else if ($(element).is(".bg-move-t, .bg-move2-t")) {
-                $(element).animate({ left: -1000, top: -1000 }, 500, function () {
+                $(element).animate({ left: -1000, top: -1000 }, 1000, function () {
                     changeIcon();
 
-                    $(element).animate({ left: oldLeft, top: oldTop }, 1000);
+                    let pos = windowTop / ($(document).height() / $(document).width());
+                    if ($(element).is(".bg-move-t")) {
+                        $(element).animate({ left: pos / 4, top: pos / 4 }, 300);
+                    }
+                    else {
+                        $(element).animate({ left: pos / 6, top: pos / 6 }, 300);
+                    }
                 });
             }
             else if ($(element).is(".bg-move-u")) {
-                $(element).animate({ left: -1000, bottom: -1000 }, 500, function () {
+                $(element).animate({ left: -1000, bottom: -1000 }, 1000, function () {
                     changeIcon();
 
-                    $(element).animate({ left: oldLeft, bottom: oldBottom }, 1000);
+                    let pos = windowTop / ($(document).height() / $(document).width());
+                    $(element).animate({ left: pos / 3, bottom: pos / 3 }, 300);
                 });
             }
 
